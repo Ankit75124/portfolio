@@ -2,6 +2,7 @@ import React from 'react'
 import {motion} from "framer-motion";
 import mainImg from "../images/1st.jpeg";
 import Image from 'next/image';
+import Title from "./Title.tsx"
 
 
 type Props = {}
@@ -19,10 +20,11 @@ export default function About({}: Props) {
             duration:1.2,
         }}
     className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">About</h3>
+       <Title name="About"/>
 
-        <motion.div 
-        initial={{
+
+            <motion.img
+            initial={{
             x:-200,
             opacity:0,
         }}
@@ -34,18 +36,10 @@ export default function About({}: Props) {
         transition={{
             duration:1.2,
         }}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]" 
-        >
-            <Image
-                className="absolute -mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-                src={mainImg}
-                alt="Landscape picture"
-                width={500}
-                height={500}
+                className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+                src="https://media-exp1.licdn.com/dms/image/C4D03AQHny8Y08xFMSA/profile-displayphoto-shrink_200_200/0/1657438610656?e=1670457600&v=beta&t=dLgVza7suK2Y-j4NA9FrGK62-h_wjnreCWzPSqimtqY"
         
             />
-
-        </motion.div>
 
 
         <div className="space-y-10 px-0 md:px-10">
