@@ -33,7 +33,7 @@ export default {
     },
     {
       name: "isCurrentlyWorkingHere",
-      title: "IsCurrentlyWorkingiere",
+      title: "IsCurrentlyWorkingHere",
       type: "boolean",
     },
     {

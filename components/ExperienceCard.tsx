@@ -45,12 +45,7 @@ export default function ExperienceCard({experience}: Props) {
                 className="h-10 w-10 rounded-full" src={urlFor(technology?.image).url()} />
                 ))}
             </div>
-            <p className="uppercase py-5 text-gray-300">
-                {new Date(experience.dateStarted).toDateString()} -{" "} 
-                {experience.isCurrentlyworkingHere 
-                ? "Present"
-            :new Date(experience.dateEnded).toDateString()}
-            </p>
+            
 
             <ul className="list-disc space-y-4 ml-5 text-lg pr-5">
                 {experience.points.map((point,i) =>(
