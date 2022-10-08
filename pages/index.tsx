@@ -48,14 +48,18 @@ const Home = ({pageInfo,
        {/* HERO */}
         <section id="hero" className="snap-start">
 
-          <Hero/>
+          <Hero
+          pageInfo={pageInfo}
+          />
 
         </section>
 
        {/* About */}
 
         <section id ="about" className="snap-center">
-          <About/>
+          <About
+          pageInfo={pageInfo}
+          />
 
         </section>
 
@@ -63,20 +67,26 @@ const Home = ({pageInfo,
       {/* Experience */}
       
         <section id="experience" className="snap-center">
-          <WorkExperience />
+          <WorkExperience
+          experiences={experiences}
+          />
         </section>
 
        {/* Skills */}
 
        <section id ="skills" className="snap-start">
-          <Skills/>
+          <Skills
+          skills={skills}
+          />
 
         </section>
 
        {/* Projects */}
 
        <section id ="projects" className="snap-start">
-          <Projects/>
+          <Projects
+          projects={projects}
+          />
 
         </section>
 
@@ -92,7 +102,7 @@ const Home = ({pageInfo,
           <div className="flex items-center justify-center">
             <img 
             className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-            src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" alt="" />
+            src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-up-01-512.png" alt="" />
             </div>
         </footer>
        </Link>
@@ -123,3 +133,6 @@ export const getStaticProps:GetStaticProps<Props> = async ()=>{
   } ;
 
 }
+
+
+

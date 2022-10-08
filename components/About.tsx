@@ -1,13 +1,15 @@
 import React from 'react'
 import {motion} from "framer-motion";
-import mainImg from "../images/1st.jpeg";
-import Image from 'next/image';
-import Title from "./Title.tsx"
+import Title from "./Title";
+import { PageInfo } from '../typings';
+import { urlFor } from '../sanity';
 
 
-type Props = {}
+type Props = {
+    pageInfo:PageInfo
+}
 
-export default function About({}: Props) {
+export default function About({pageInfo}: Props) {
   return (
     <motion.div 
     initial={{
@@ -37,7 +39,7 @@ export default function About({}: Props) {
             duration:1.2,
         }}
                 className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
-                src="https://media-exp1.licdn.com/dms/image/C4D03AQHny8Y08xFMSA/profile-displayphoto-shrink_200_200/0/1657438610656?e=1670457600&v=beta&t=dLgVza7suK2Y-j4NA9FrGK62-h_wjnreCWzPSqimtqY"
+                src={urlFor(pageInfo?.heroImage).url()} 
         
             />
 
@@ -48,7 +50,7 @@ export default function About({}: Props) {
             </h4>
 
             <p className='text-base'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui laudantium deleniti repudiandae neque dolorum recusandae dolorem facere, molestias doloremque vel laborum earum architecto itaque minus, tempore natus, magni non ab. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam labore sapiente accusamus culpa a, velit voluptatibus necessitatibus! Veritatis ut corporis est, quas fugit vitae illo totam, at explicabo ipsum aspernatur porro cum blanditiis quidem id voluptate magni quia, obcaecati qui repellat? Mollitia eligendi magnam error reiciendis dolore non, at cum ullam exercitationem minus voluptas amet quis inventore voluptate quam. Alias facere beatae, neque, itaque reprehenderit in doloremque necessitatibus incidunt ducimus obcaecati amet quo? Sequi, similique. Quam debitis cupiditate earum doloribus illum doloremque, placeat, nemo maxime non totam quibusdam. Quisquam, delectus nam. Harum tenetur sit magni labore animi quam a saepe culpa nihil dicta.
+                {pageInfo?.backgroundInformation}
             </p>
 
         </div>

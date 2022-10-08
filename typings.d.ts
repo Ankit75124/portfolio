@@ -56,9 +56,10 @@ export interface Technology extends SanityBody {
 }
 
 export interface Experience extends SanityBody {
+  companyImage: any;
   _type: "experience";
   company: string;
-  companyInage: Inage;
+  companyInage: Image;
   dateStarted: date;
   dateEnded: date;
   isCurrentlyworkingHere: boolean;

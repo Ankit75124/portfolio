@@ -1,14 +1,17 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
 import React from 'react'
 import {motion} from "framer-motion";
 import Title from "./Title"
+import { Project } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {}
+type Props = {
+  projects:Project[];
+}
 
-export default function Projects({}: Props) {
-
-    const projects= [1,2,3,4,5];
+export default function Projects({projects}: Props) {
 
   return (
     <motion.div
@@ -43,15 +46,31 @@ export default function Projects({}: Props) {
                         y:0
                     }}
                     viewport={{once:true}}
-                    src="https://media-exp1.licdn.com/dms/image/C4E0BAQFFxwyG3oCLQw/company-logo_200_200/0/1642769710454?e=2147483647&v=beta&t=M4h4-b-R99m9tI_p17mH0F7vi0bmQfFooAItWUPeBb4" alt="" />
+                    src={urlFor(project?.image).url()}   alt="" />
 
                     <div className="space-y-10 px-0 md:px-10 max-w-6xl">
                         <h4 className="text-4xl font-semibold text-center">
-                            <span className="underline decoration-[#F7AB0A]/50">Case {i+1} of {projects.length} :</span>  1stkdjks
+                            <span className="underline decoration-[#F7AB0A]/50">Case {i+1} of {projects.length}:</span>
+                            <a href={project.linkToBuild} target=" _blank">   {project.title}</a>  
                         </h4>
 
+                        <div className="flex items-center space-x-2 justify-center">
+
+                          {project.technologies.map(technology =>(
+                            <img 
+                            className="h-10 w-10"
+                            key={technology._id}
+                            src={urlFor(technology?.image).url()} />
+                          ))}
+
+                          
+
+                        </div>
+
+                        
+
                         <p className="text-lg text-center md:text-left">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla placeat inventore recusandae soluta alias, labore quam, quaerat id sequi in, accusantium facere! Incidunt doloribus obcaecati maxime omnis necessitatibus repudiandae, vero veniam? Commodi dicta ratione excepturi aliquid quis reiciendis nisi aperiam, non blanditiis amet, impedit harum quibusdam molestiae perspiciatis recusandae inventore reprehenderit eaque animi, officia doloribus quos architecto corporis.
+                            {project.summary}
                         </p>
 
                     </div>

@@ -4,7 +4,7 @@ import{sanityClient} from "../../sanity";
 import { Experience} from "../../typings";
 
 const query = groq`
-    *[_type=="experience"][0]{
+    *[_type=="experience"]{
   ...,
   technologies[]->
 }
