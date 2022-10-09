@@ -30,8 +30,8 @@ export default function Projects({projects}: Props) {
 
         <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
             {/* Projects */}
-            {projects.reverse().map((project,i) =>(
-                <div key={project._id} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
+            {projects?.reverse().map((project,i) =>(
+                <div key={project?._id} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
                     
                     <motion.img 
                     className="h-[50%] "
@@ -52,7 +52,7 @@ export default function Projects({projects}: Props) {
                     <div className="space-y-10 px-0 md:px-10 max-w-6xl">
                         <h4 className="text-4xl font-semibold text-center">
                             <span className="underline decoration-[#F7AB0A]/50">Case {i+1} of {projects.length}:</span>
-                            <a href={project.linkToBuild} target=" _blank">   {project.title}</a>  
+                            <a href={project?.linkToBuild} target=" _blank">   {project.title}</a>  
                         </h4>
 
                         <div className="flex items-center space-x-2 justify-center">
@@ -60,7 +60,7 @@ export default function Projects({projects}: Props) {
                           {project.technologies.map(technology =>(
                             <img 
                             className="h-10 w-10"
-                            key={technology._id}
+                            key={technology?._id}
                             src={urlFor(technology?.image).url()} />
                           ))}
 
@@ -70,7 +70,7 @@ export default function Projects({projects}: Props) {
                         
 
                         <p className="text-lg text-center md:text-left">
-                            {project.summary}
+                            {project?.summary}
                         </p>
 
                     </div>
