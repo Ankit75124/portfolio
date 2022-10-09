@@ -9,7 +9,7 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
 import Link from 'next/link';
-import { Experience, PageInfo, Project, Skill, Social } from '../typings'
+import { Experience, PageInfo, Project, Skill, Social, Technology } from '../typings'
 import { fetchPageInfo } from '../utils/fetchPageInfo'
 import { fetchExperiences } from '../utils/fetchExperiences'
 import { fetchSkills } from '../utils/fetchSkills'
@@ -113,23 +113,26 @@ const Home = ({pageInfo,
 export default Home;
 
 
-export const getStaticProps:GetStaticProps<Props> = async ()=>{
+Home.getInitialProps = async ({ req }: any) => {
+  let host: string = "";
+  if (req) {
+    host = `http://${req.headers.host}`; // will give you localhost:3000
+    console.log(req.headers.host);
+  }
 
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[]= await fetchProjects();
-  const socials: Social[] = await fetchSocials()
+  const pageInfo: PageInfo = await fetchPageInfo(host);
+  const experiences: Experience[] = await fetchExperiences(host);
+  const skills: Technology[] = await fetchSkills(host);
+  const socials: Social[] = await fetchSocials(host);
+  const projects: Project[] = await fetchProjects(host);
   return {
-    props:{
+   
       pageInfo,
       experiences,
       skills,
       projects,
       socials,
-    },
 
-    revalidate:10,
   } ;
 
 }

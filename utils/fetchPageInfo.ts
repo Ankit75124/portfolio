@@ -1,8 +1,8 @@
 import { PageInfo } from "../typings";
 
-export const fetchPageInfo = async () => {
+export const fetchPageInfo = async (host:string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`
+    `${host}/api/getPageInfo`
   );
 
   const data = await res.json();

@@ -1,11 +1,11 @@
 import { Skill } from "../typings";
 
-export const fetchSkills = async()=>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`);
+export const fetchSkills = async (host: string) => {
+  const res = await fetch(`${host}/api/getSkills`);
 
-    const data = await res.json();
+  const data = await res.json();
 
-    const skills:Skill[] = data.skill;
+  const skills: Skill[] = data.skill;
 
-    return skills;
+  return skills;
 };
